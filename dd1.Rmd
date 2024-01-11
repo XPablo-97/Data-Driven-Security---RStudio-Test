@@ -66,7 +66,7 @@ datos <- read.csv('epa-http.csv')
 
 **Una vez cargado el Dataset a analizar, comprobando que se cargan las IPs, el Timestamp, la Petición (Tipo, URL y Protocolo), Código de respuesta, y Bytes de reply.**
 
-**1. Cuales son las dimensiones del dataset cargado (número de filas y columnas)**
+**1.Cuales son las dimensiones del dataset cargado (número de filas y columnas)**
 
 ```{r 1a, echo=FALSE}
 dim(datos)
