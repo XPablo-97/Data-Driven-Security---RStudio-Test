@@ -1,6 +1,8 @@
 ---
 title: "DD1"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 date: "2024-01-11"
 ---
 
@@ -56,13 +58,24 @@ Finalmente, se debe comunicar los resultados del análisis a los operadores o la
 
 ## Introducción a R
 
+```{r carga_datos, echo=FALSE}
+datos <- read.csv('epa-http.csv')
+```
+
 **Pregunta 1:**
 
 **Una vez cargado el Dataset a analizar, comprobando que se cargan las IPs, el Timestamp, la Petición (Tipo, URL y Protocolo), Código de respuesta, y Bytes de reply.**
 
 **1. Cuales son las dimensiones del dataset cargado (número de filas y columnas)**
 
+```{r 1a, echo=FALSE}
+dim(datos)
+```
+
 **2. Valor medio de la columna Bytes**
+```{r 1b, echo=FALSE}
+mean(datos)
+```
 
 **Pregunta 2:**
 
@@ -84,16 +97,12 @@ Finalmente, se debe comunicar los resultados del análisis a los operadores o la
 
 **Aprovechando que hemos separado la petición en 3 partes (Tipo, URL, Protocolo) ¿Cuantas peticiones NO tienen como protocolo "HTTP/0.2"?**
 
-```{r cars}
-summary(cars)
-```
-
 ## Including Plots
 
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+dim(datos)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
