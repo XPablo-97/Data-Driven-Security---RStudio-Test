@@ -54,7 +54,35 @@ Una vez que se han respondido estas preguntas, se pueden utilizar gráficos para
 
 Finalmente, se debe comunicar los resultados del análisis a los operadores o la dirección de la empresa. Esto puede incluir un informe detallado que describe los hallazgos del análisis, así como recomendaciones para prevenir futuros incidentes de este tipo. Es importante comunicar estos resultados de manera clara y concisa, y asegurarse de que los operadores o la dirección de la empresa comprendan la importancia de tomar medidas para proteger la red empresarial.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Introducción a R
+
+**Pregunta 1:**
+
+**Una vez cargado el Dataset a analizar, comprobando que se cargan las IPs, el Timestamp, la Petición (Tipo, URL y Protocolo), Código de respuesta, y Bytes de reply.**
+
+**1. Cuales son las dimensiones del dataset cargado (número de filas y columnas)**
+
+**2. Valor medio de la columna Bytes**
+
+**Pregunta 2:**
+
+**De las diferentes IPs de origen accediendo al servidor, ¿cuantas pertenecen a una IP claramente educativa (que contenga ".edu")?**
+
+**Pregunta 3:**
+
+**De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
+
+**Pregunta 4:**
+
+**De las peticiones hechas por instituciones educativas (.edu), ¿Cuantos bytes en total se han transmitido, en peticiones de descarga de ficheros de texto ".txt"?**
+
+**Pregunta 5:**
+
+**Si separamos la petición en 3 partes (Tipo, URL, Protocolo), usando str_split y el separador " " (espacio), ¿cuantas peticiones buscan directamente la URL = "/"?**
+
+**Pregunta 6:**
+
+**Aprovechando que hemos separado la petición en 3 partes (Tipo, URL, Protocolo) ¿Cuantas peticiones NO tienen como protocolo "HTTP/0.2"?**
 
 ```{r cars}
 summary(cars)
