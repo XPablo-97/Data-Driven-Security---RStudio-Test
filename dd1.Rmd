@@ -72,9 +72,7 @@ datos <- read.csv('epa-http.csv')
 dim(epa_http)
 ```
 
-**2. Valor medio de la columna Bytes**
-Primero reemplazamos los '-' por '0'
-epa_http$x7NUM <-  y después hacemos la media.
+**2. Valor medio de la columna Bytes** Primero reemplazamos los '-' por '0' epa_http\$x7NUM \<- y después hacemos la media.
 
 ```{r 1b, echo=FALSE}
 epa_http$x7NUM<-gsub("-", "0", epa_http[,7])
@@ -88,6 +86,7 @@ mean(as.numeric(epa_http$x7NUM))
 ```{r 2, echo=FALSE}
 grep("%.edu", epa_http$x7)
 ```
+
 **Pregunta 3:**
 
 **De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
