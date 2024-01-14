@@ -1,0 +1,274 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={DD1},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{DD1}
+\author{}
+\date{\vspace{-2.5em}2024-01-11}
+
+\begin{document}
+\maketitle
+
+\hypertarget{actividad-evaluable-1}{%
+\subsection{Actividad Evaluable 1}\label{actividad-evaluable-1}}
+
+\hypertarget{data-science}{%
+\subsection{Data Science}\label{data-science}}
+
+\textbf{Pregunta 1:}
+
+\textbf{De las siguientes preguntas, clasifica cada una como
+descriptiva, exploratoria, inferencia, predictiva o causal, y razona
+brevemente (una frase) el porqué}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Dado un registro de vehículos que circulan por una autopista,
+  disponemos de su marca y modelo, país de matriculación, y tipo de
+  vehículo (por número de ruedas). Con tal de ajustar precios de los
+  peajes, ¿Cuántos vehículos tenemos por tipo? ¿Cuál es el tipo más
+  frecuente? ¿De qué países tenemos más vehículos?}
+\end{enumerate}
+
+DESCRIPTIVAS. Ya que el resultado a analizar para subir el precio viene
+dado en funció de las estadísticas recibidas del registro como conjunto
+global y la pregunta no busca hacer inferencias, predicciones o
+establecer relaciones causales entre las variables.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Dado un registro de visualizaciones de un servicio de
+  video-on-demand, donde disponemos de los datos del usuario, de la
+  película seleccionada, fecha de visualización y categoría de la
+  película, queremos saber ¿Hay alguna preferencia en cuanto a género
+  literario según los usuarios y su rango de edad?}
+\end{enumerate}
+
+EXPLORATORIAS. El resultado viene dado en funcion de la relación de
+rango de edad y género literario.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Dado un registro de peticiones a un sitio web, vemos que las
+  peticiones que provienen de una red de telefonía concreta acostumbran
+  a ser incorrectas y provocarnos errores de servicio. ¿Podemos
+  determinar si en el futuro, los próximos mensajes de esa red seguirán
+  dando problemas? ¿Hemos notado el mismo efecto en otras redes de
+  telefonía?}
+\end{enumerate}
+
+INFERENCIAS. Ya que se bass en la observación de que las peticiones de
+esa red acostumbran a ser incorrectas y provocar errores de servicio y
+se busca inferir si el mismo efecto se ha notado en otras redes de
+telefonía.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Dado los registros de usuarios de un servicio de compras por
+  internet, los usuarios pueden agruparse por preferencias de productos
+  comprados. Queremos saber si ¿Es posible que, dado un usuario al azar
+  y según su historial, pueda ser directamente asignado a un o diversos
+  grupos?}
+\end{enumerate}
+
+PREDICITVA. Ya que se assigna a uno o diversos grupos en funcion de los
+datos vistos en su historial.
+
+\textbf{Pregunta 2:}
+
+\textbf{Considera el siguiente escenario: Sabemos que un usuario de
+nuestra red empresarial ha estado usando esta para fines no relacionados
+con el trabajo, como por ejemplo tener un servicio web no autorizado
+abierto a la red (otros usuarios tienen servicios web activados y
+autorizados). No queremos tener que rastrear los puertos de cada PC, y
+sabemos que la actividad puede haber cesado. Pero podemos acceder a los
+registros de conexiones TCP de cada máquina de cada trabajador (hacia
+donde abre conexión un PC concreto). Sabemos que nuestros clientes se
+conectan desde lugares remotos de forma legítima, como parte de nuestro
+negocio, y que un trabajador puede haber habilitado temporalmente
+servicios de prueba. Nuestro objetivo es reducir lo posible la lista de
+posibles culpables, con tal de explicarles que por favor no expongan
+nuestros sistemas sin permiso de los operadores o la dirección.}
+
+\textbf{Explica con detalle cómo se podría proceder al análisis y
+resolución del problema mediante Data Science, indicando de donde se
+obtendrían los datos, qué tratamiento deberían recibir, qué preguntas
+hacerse para resolver el problema, qué datos y gráficos se obtendrían, y
+cómo se comunicarían estos.}
+
+Se debe recopilar los registros de conexiones TCP de cada máquina de
+cada trabajador. A continuación, se deben limpiar y preprocesar los
+datos para eliminar cualquier información redundante o no relevante.
+Esto puede incluir la eliminación de registros de conexiones que no sean
+relevantes para el análisis, como las conexiones de red establecidas por
+clientes legítimos.
+
+Una vez que los datos se han limpiado y preprocesado, se pueden realizar
+varias preguntas para identificar al usuario que ha estado usando la red
+empresarial para fines no relacionados con el trabajo. Algunas preguntas
+que se pueden hacer incluyen:
+
+• ¿Qué máquinas han establecido conexiones de red con el servicio web no
+autorizado?
+
+• ¿Cuántas conexiones de red se han establecido con el servicio web no
+autorizado?
+
+• ¿Cuándo se establecieron estas conexiones de red?
+
+• ¿Qué usuarios estaban conectados a estas máquinas en el momento en que
+se establecieron las conexiones de red?
+
+Una vez que se han respondido estas preguntas, se pueden utilizar
+gráficos para visualizar los datos y ayudar a identificar al usuario que
+ha estado usando la red empresarial para fines no relacionados con el
+trabajo. Por ejemplo, se pueden crear gráficos de barras para mostrar el
+número de conexiones de red establecidas por cada máquina, o gráficos de
+líneas para mostrar la cantidad de tráfico de red generado por cada
+máquina.
+
+Finalmente, se debe comunicar los resultados del análisis a los
+operadores o la dirección de la empresa. Esto puede incluir un informe
+detallado que describe los hallazgos del análisis, así como
+recomendaciones para prevenir futuros incidentes de este tipo. Es
+importante comunicar estos resultados de manera clara y concisa, y
+asegurarse de que los operadores o la dirección de la empresa comprendan
+la importancia de tomar medidas para proteger la red empresarial.
+
+\hypertarget{introducciuxf3n-a-r}{%
+\subsection{Introducción a R}\label{introducciuxf3n-a-r}}
+
+\textbf{Pregunta 1:}
+
+\textbf{Una vez cargado el Dataset a analizar, comprobando que se cargan
+las IPs, el Timestamp, la Petición (Tipo, URL y Protocolo), Código de
+respuesta, y Bytes de reply.}
+
+\textbf{1. Cuales son las dimensiones del dataset cargado (número de
+filas y columnas)}
+
+\textbf{2. Valor medio de la columna Bytes}
+
+\textbf{Pregunta 2:}
+
+\textbf{De las diferentes IPs de origen accediendo al servidor, ¿cuantas
+pertenecen a una IP claramente educativa (que contenga ``.edu'')?}
+
+\textbf{Pregunta 3:}
+
+\textbf{De todas las peticiones recibidas por el servidor cual es la
+hora en la que hay mayor volumen de peticiones HTTP de tipo ``GET''?}
+
+\textbf{Pregunta 4:}
+
+\textbf{De las peticiones hechas por instituciones educativas (.edu),
+¿Cuantos bytes en total se han transmitido, en peticiones de descarga de
+ficheros de texto ``.txt''?}
+
+\textbf{Pregunta 5:}
+
+\textbf{Si separamos la petición en 3 partes (Tipo, URL, Protocolo),
+usando str\_split y el separador '' '' (espacio), ¿cuantas peticiones
+buscan directamente la URL = ``/''?}
+
+\textbf{Pregunta 6:}
+
+\textbf{Aprovechando que hemos separado la petición en 3 partes (Tipo,
+URL, Protocolo) ¿Cuantas peticiones NO tienen como protocolo
+``HTTP/0.2''?}
+
+\begin{verbatim}
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+\end{verbatim}
+
+\hypertarget{including-plots}{%
+\subsection{Including Plots}\label{including-plots}}
+
+You can also embed plots, for example:
+
+\includegraphics{dd1_files/figure-latex/pressure-1.pdf}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\end{document}
