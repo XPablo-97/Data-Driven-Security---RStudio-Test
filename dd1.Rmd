@@ -68,41 +68,65 @@ datos <- read.csv('epa-http.csv')
 
 **1.Cuales son las dimensiones del dataset cargado (número de filas y columnas)**
 
+Una vez leído el fichero .csv, con la funció dim() mostramos el número de filas y columnas que representa el dataset.
+
 ```{r 1a, echo=FALSE}
-dim(epa_http)
+dim(dades2)
 ```
 
 **2. Valor medio de la columna Bytes**
-Primero reemplazamos los '-' por '0'
-epa_http$x7NUM <-  y después hacemos la media.
+
+Primero reemplazamos los '-' por '0' epa_http\$x7NUM \<- y después hacemos la media.
 
 ```{r 1b, echo=FALSE}
 epa_http$x7NUM<-gsub("-", "0", epa_http[,7])
-mean(as.numeric(epa_http$x7NUM))
+epa_http$x7NUM<-as.numeric(epa_http$x7NUM)
+mean(epa_http$x7NUM, na.rm = TRUE)
 ```
 
 **Pregunta 2:**
 
 **De las diferentes IPs de origen accediendo al servidor, ¿cuantas pertenecen a una IP claramente educativa (que contenga ".edu")?**
 
+Buscamos con el comando grep en la columna 'x1' todos los valores iguales a *.edu* y mostramos el número.
+
 ```{r 2, echo=FALSE}
-grep("%.edu", epa_http$x7)
+length(grep(".edu",epa_http$X1))
 ```
+
 **Pregunta 3:**
 
 **De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
+
+Primero buscamos las filas que contengan 'GET' en la fila 'X3'. Una vez las tenemos, mostramos el número de veces con la función table().
+
+```{r 3, echo=FALSE}
+filasGET<-grep("GET",epa_http$X3)
+```
 
 **Pregunta 4:**
 
 **De las peticiones hechas por instituciones educativas (.edu), ¿Cuantos bytes en total se han transmitido, en peticiones de descarga de ficheros de texto ".txt"?**
 
+```{r 4, echo=FALSE}
+filasEDU<-grep(".edu",epa_http$X1)
+```
+
 **Pregunta 5:**
 
 **Si separamos la petición en 3 partes (Tipo, URL, Protocolo), usando str_split y el separador " " (espacio), ¿cuantas peticiones buscan directamente la URL = "/"?**
 
+```{r 5, echo=FALSE}
+
+```
+
 **Pregunta 6:**
 
 **Aprovechando que hemos separado la petición en 3 partes (Tipo, URL, Protocolo) ¿Cuantas peticiones NO tienen como protocolo "HTTP/0.2"?**
+
+```{r 6, echo=FALSE}
+length(grep(".edu",epa_http$X1))
+```
 
 ## Including Plots
 
