@@ -71,7 +71,7 @@ datos <- read.csv('epa-http.csv')
 Una vez leído el fichero .csv, con la funció dim() mostramos el número de filas y columnas que representa el dataset.
 
 ```{r 1a, echo=FALSE}
-dim(dades2)
+dim(epa_http)
 ```
 
 <<<<<<< HEAD
@@ -105,39 +105,45 @@ length(grep(".edu",epa_http$X1))
 Primero buscamos las filas que contengan 'GET' en la fila 'X3'. Una vez las tenemos, mostramos el número de veces con la función table().
 
 ```{r 3, echo=FALSE}
-filasGET<-grep("GET",epa_http$X3)
+#filasGET<-grep("GET",epa_http$X3)
+ips_GET <- subset(epa_http, grepl("GET", epa_http$X3))
+table(epa_http$X2 == ips_GET$X2)
 ```
 
 **Pregunta 4:**
 
 **De las peticiones hechas por instituciones educativas (.edu), ¿Cuantos bytes en total se han transmitido, en peticiones de descarga de ficheros de texto ".txt"?**
 
+Una vez tenemos las filas que contienen ".edu" en la X1 y las que contiene ".txt" en el "X3", miramos las que coinciden y sumamos los valores de la última columna.
+
 ```{r 4, echo=FALSE}
-filasEDU<-grep(".edu",epa_http$X1)
+peticiones_edu <- subset(epa_http, grepl(".edu", epa_http$X1))
+peticiones_txt <- subset(peticiones_edu, grepl("\\.txt$",peticiones_edu$X4))
+peticiones_txt$x7NUM <- as.numeric(gsub("-", "0", peticiones_txt$x7NUM))
+total_bytes_txt <- sum(peticiones_txt$x7NUM, na.rm = TRUE)
+total_bytes_txt
 ```
 
 **Pregunta 5:**
 
 **Si separamos la petición en 3 partes (Tipo, URL, Protocolo), usando str_split y el separador " " (espacio), ¿cuantas peticiones buscan directamente la URL = "/"?**
 
-```{r 5, echo=FALSE}
+Separamos con la instrucción y lo guardamos en una variable (hemos utilizado otro dataset porque en la importación ya lo habiamos separado) y hacemos un length del campo buscando el carácter '/'.
 
+```{r 5, echo=FALSE}
+#subcadenes<-str_split(epa_http$V3," ")
+length(grep("^/$",epa_http$X4))
 ```
 
 **Pregunta 6:**
 
 **Aprovechando que hemos separado la petición en 3 partes (Tipo, URL, Protocolo) ¿Cuantas peticiones NO tienen como protocolo "HTTP/0.2"?**
 
+Buscamos el toal de filas que contengan HTTP/0.2 y lo restamos al total de filas.
+
 ```{r 6, echo=FALSE}
-length(grep(".edu",epa_http$X1))
+filashttp02<-length(grep("HTTP/0.2",epa_http$X5))
+nrow(epa_http)-filashttp02
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-dim(datos)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## 
