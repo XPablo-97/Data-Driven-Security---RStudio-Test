@@ -102,8 +102,8 @@ Primero buscamos las filas que contengan 'GET' en la fila 'X3'. Una vez las tene
 
 ```{r 3, echo=FALSE}
 #filasGET<-grep("GET",epa_http$X3)
-ips_GET <- subset(epa_http, grepl("GET", epa_http$X3))
-table(epa_http$X2 == ips_GET$X2)
+ips_GET <- subset(datos4, grepl("GET", datos4$V3))
+ips_GET
 ```
 
 **Pregunta 4:**
@@ -113,7 +113,7 @@ table(epa_http$X2 == ips_GET$X2)
 Una vez tenemos las filas que contienen ".edu" en la X1 y las que contiene ".txt" en el "X3", miramos las que coinciden y sumamos los valores de la última columna.
 
 ```{r 4, echo=FALSE}
-peticiones_edu <- subset(epa_http, grepl(".edu", epa_http$X1))
+peticiones_edu <- subset(epa_http, grepl(".edu", datos4$V1))
 peticiones_txt <- subset(peticiones_edu, grepl("\\.txt$",peticiones_edu$X4))
 peticiones_txt$x7NUM <- as.numeric(gsub("-", "0", peticiones_txt$x7NUM))
 total_bytes_txt <- sum(peticiones_txt$x7NUM, na.rm = TRUE)
@@ -127,8 +127,10 @@ total_bytes_txt
 Separamos con la instrucción y lo guardamos en una variable (hemos utilizado otro dataset porque en la importación ya lo habiamos separado) y hacemos un length del campo buscando el carácter '/'.
 
 ```{r 5, echo=FALSE}
-#subcadenes<-str_split(epa_http$V3," ")
-length(grep("^/$",epa_http$X4)) 
+library(stringr)
+subcadenes<-str_split(datos4$V3," ", simplify = TRUE)
+resultat<-length(grep("^/$",subcadenes$V2)) 
+resultat
 ```
 
 **Pregunta 6:**
@@ -138,8 +140,8 @@ length(grep("^/$",epa_http$X4))
 Buscamos el toal de filas que contengan HTTP/0.2 y lo restamos al total de filas.
 
 ```{r 6, echo=FALSE}
-filashttp02<-length(grep("HTTP/0.2",epa_http$X5))
-nrow(epa_http)-filashttp02
+filashttp02<-length(grep("HTTP/0.2",datos4$X5))
+nrow(datos4)-filashttp02
 ```
 
 ## 
