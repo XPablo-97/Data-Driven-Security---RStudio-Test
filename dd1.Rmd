@@ -98,12 +98,14 @@ length(grep(".edu",datos4$V1))
 
 **De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
 
-Primero buscamos las filas que contengan 'GET' en la fila 'X3'. Una vez las tenemos, mostramos el número de veces con la función table().
+Cargamos las librerias y primero buscamos las filas que contengan 'GET' en la fila 'X3'. Una vez las tenemos, las agrupamos y mostramos el número de veces que se repite cada valor.
 
 ```{r 3, echo=FALSE}
 #filasGET<-grep("GET",epa_http$X3)
+library(tidyselect)
+library(dplyr)
 ips_GET <- subset(datos4, grepl("GET", datos4$V3))
-ips_GET
+ips_GET %>% group_by(V2) %>% summarise(total = count(V1),n = n())
 ```
 
 **Pregunta 4:**
