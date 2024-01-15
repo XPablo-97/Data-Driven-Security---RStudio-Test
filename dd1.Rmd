@@ -107,7 +107,9 @@ library(dplyr)
 
 ips_GET <- subset(datos4, grepl("GET", datos4$V3))
 ips_get_separate<-tidyr::separate(ips_GET,V2,c("d","h","s","ms"),sep=":")
-#ips_GET %>% group_by(V2) %>% summarise(total = count(),n = n())
+datos_seleccionados <- select(ips_get_separate, h, s)
+datos_agrupados <- datos_seleccionados %>% group_by(h) %>% summarise(total = count(s), n = n())
+count(as.integer(datos_agrupados$h))
 ```
 
 **Pregunta 4:**
