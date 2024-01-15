@@ -132,7 +132,7 @@ Separamos con la instrucción y lo guardamos en una variable (hemos utilizado ot
 
 ```{r 5, echo=FALSE}
 #subcadenes<-str_split(epa_http$V3," ")
-length(grep("^/$",epa_http$X4))
+length(grep("^/$",epa_http$X4)) 
 ```
 
 **Pregunta 6:**
