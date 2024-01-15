@@ -59,7 +59,7 @@ Finalmente, se debe comunicar los resultados del análisis a los operadores o la
 ## Introducción a R
 
 ```{r carga_datos, echo=FALSE}
-datos <- read.csv('epa-http.csv')
+datos4 <- read.csv('epa-http.csv',sep = " ",header = FALSE)
 ```
 
 **Pregunta 1:**
@@ -71,7 +71,7 @@ datos <- read.csv('epa-http.csv')
 Una vez leído el fichero .csv, con la funció dim() mostramos el número de filas y columnas que representa el dataset.
 
 ```{r 1a, echo=FALSE}
-dim(epa_http)
+dim(datos4)
 ```
 
 **2. Valor medio de la columna Bytes**
@@ -79,9 +79,9 @@ dim(epa_http)
 Primero reemplazamos los '-' por '0' epa_http\$x7NUM \<- y después hacemos la media. \>\>\>\>\>\>\> 12d52a36d2a5677009e75fd6c752d488d4a05a94
 
 ```{r 1b, echo=FALSE}
-epa_http$x7NUM<-gsub("-", "0", epa_http[,7])
-epa_http$x7NUM<-as.numeric(epa_http$x7NUM)
-mean(epa_http$x7NUM, na.rm = TRUE)
+datos4$x7NUM<-gsub("-", "0", datos4$V5)
+datos4$x7NUM<-as.numeric(datos4$x7NUM)
+mean(datos4$x7NUM, na.rm = TRUE)
 ```
 
 **Pregunta 2:**
@@ -91,7 +91,7 @@ mean(epa_http$x7NUM, na.rm = TRUE)
 Buscamos con el comando grep en la columna 'x1' todos los valores iguales a *.edu* y mostramos el número.
 
 ```{r 2, echo=FALSE}
-length(grep(".edu",epa_http$X1))
+length(grep(".edu",datos4$V1))
 ```
 
 **Pregunta 3:**
